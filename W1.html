@@ -618,12 +618,12 @@
             border-radius: 10px;
             margin-bottom: 1.5rem;
              border: 1px solid rgba(255, 255, 255, 0.1);
-             cursor: pointer; /* Added cursor */
-             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+             cursor: pointer; 
+             transition: transform 0.3s ease, box-shadow 0.3s ease; 
         }
          .resume-preview img:hover {
-            transform: scale(1.03); /* Slight zoom on hover */
-            box-shadow: 0 0 25px rgba(0, 204, 255, 0.2); /* Glow on hover */
+            transform: scale(1.03); 
+            box-shadow: 0 0 25px rgba(0, 204, 255, 0.2); 
          }
         /* --- END RESUME SECTION --- */
 
@@ -835,6 +835,10 @@
              .project-grid {
                  grid-template-columns: 1fr; 
              }
+             /* Cert Grid for Tablet */
+             .cert-grid {
+                 grid-template-columns: repeat(2, 1fr); 
+             }
         }
 
         @media (max-width: 768px) {
@@ -842,22 +846,24 @@
                 flex-direction: column;
                 align-items: center;
                 padding: 1rem;
-                gap: 1rem;
+                gap: 0.5rem; /* Reduced gap */
             }
 
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: row; /* Keep nav horizontal on mobile */
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center; /* Center items */
                 width: 100%;
+                padding-top: 0.5rem; /* Add some space above */
             }
 
             nav ul li {
-                margin: 0.5rem 0;
+                margin: 0.2rem 0.5rem; /* Adjust margin for horizontal layout */
             }
 
             .section {
                 flex-direction: column;
-                padding: 7rem 1rem 2rem;
+                padding: 6rem 1rem 2rem; /* Reduced top padding */
                 min-height: auto;
             }
 
@@ -879,7 +885,7 @@
             }
             
             .section h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem; /* Slightly smaller */
             }
             
             .section h1::after {
@@ -887,18 +893,18 @@
                 margin-right: auto;
             }
 
-            /* Grid mobile styles */
+            /* Grid mobile styles - Changed to 1 column */
             .cert-grid-container {
                 max-height: 80vh; 
                 padding: 1rem;
             }
             .cert-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 1rem;
+                grid-template-columns: 1fr; /* Single column */
+                gap: 1.5rem; /* Increase gap for single column */
             }
             .cert-title-overlay {
-                font-size: 0.8rem;
-                padding: 0.5rem;
+                font-size: 0.9rem; /* Slightly larger text */
+                padding: 0.75rem;
             }
             
             /* --- TIMELINE MOBILE STYLES --- */
@@ -909,66 +915,78 @@
             }
 
             .timeline-container::before {
-                left: 10px; 
+                left: 15px; /* Adjust line position slightly */
             }
             .timeline-item {
-                padding-left: 30px; 
+                padding-left: 40px; /* More space for content */
                 padding-right: 0;
             }
             .timeline-dot {
-                left: 10px; 
+                left: 15px; /* Adjust dot position slightly */
             }
             .timeline-content {
                 width: 100%;
                 left: 0 !important; 
                 text-align: left !important; 
+                padding: 1rem; /* Adjust padding */
             }
             .timeline-item:nth-child(even) .timeline-content {
                 left: 0; 
             }
             .timeline-content::after {
-                left: -10px !important; 
+                left: -8px !important; /* Adjust arrow position */
                 right: auto !important;
-                border-width: 10px 10px 10px 0 !important;
+                border-width: 8px 8px 8px 0 !important; /* Smaller arrow */
                 border-color: transparent rgba(255, 255, 255, 0.05) transparent transparent !important;
             }
             /* --- END TIMELINE MOBILE --- */
 
-            /* --- PROJECT MOBILE --- */
+            /* --- PROJECT MOBILE (1 Column) --- */
              .project-grid-container { 
                  max-height: 80vh; 
                  padding: 1rem;
              }
             .project-grid {
-                 grid-template-columns: 1fr; /* Still single column */
+                 grid-template-columns: 1fr; /* Single column */
                  gap: 1.5rem;
             }
             .project-card h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem; /* Slightly larger heading */
             }
+             .project-card img {
+                 height: 180px; /* Adjust image height */
+             }
             /* --- END PROJECT MOBILE --- */
 
             /* --- RESUME MOBILE --- */
             .resume-container {
                 padding: 1.5rem;
             }
+             .resume-preview img {
+                 max-width: 300px; /* Adjust preview size */
+             }
             /* --- END RESUME MOBILE --- */
 
 
              /* Popup adjustments for smaller mobiles */
             .popup-content {
-                padding: 1.5rem;
+                padding: 1rem; /* Reduced padding */
                 width: 95vw; 
                 height: 95vh; 
             }
              #popupImg {
-                 max-height: 45vh; 
+                 max-height: 40vh; /* Increased image height slightly */
              }
              #popupTitle {
-                 font-size: 1.25rem;
+                 font-size: 1.3rem; /* Larger title */
              }
              #popupDesc {
                  font-size: 0.9rem;
+             }
+             .close-btn {
+                 font-size: 1.8rem; /* Smaller close button */
+                 top: 10px;
+                 right: 15px;
              }
         }
     </style>
@@ -1105,20 +1123,34 @@
         <div class="timeline-scroll-wrapper">
             <div class="timeline-container">
 
-                <!-- Experience Item 6: Process Mining Internship (19.png) - OLDEST -->
-                <div class="timeline-item">
+                 <!-- Experience Item 1: Accenture Job Sim (17.png) - NEWEST -->
+                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Virtual Internship (Process Mining)</h3>
-                        <h4>Celonis (via NEAT & EduSkills)</h4>
-                        <div class="date">Dec 2022 - Feb 2023</div>
-                        <p>Successfully completed a 10-week Virtual Internship in Process Mining from the Institute of Technology & Management, Gwalior.</p>
-                        <a class="timeline-btn" onclick="openPopup('Virtual Internship (Process Mining)', 'Celonis (via NEAT & EduSkills)', 'Completed: Dec 2022 - Feb 2023', '19.png', 'Successfully completed a 10-week Virtual Internship in Process Mining from the Institute of Technology & Management, Gwalior.')">
+                        <h3>Software Engineering Job Simulation</h3>
+                        <h4>Accenture (via Forage)</h4>
+                        <div class="date">July 25th, 2025</div>
+                        <p>Completed practical tasks in 'Architecture', 'Security', 'Programming', 'Testing', and 'Agile' as part of the Accenture Software Engineering Job Simulation.</p>
+                        <a class="timeline-btn" onclick="openPopup('Software Engineering Job Simulation', 'Accenture (via Forage)', 'Completed: July 25th, 2025', '17.png', 'Completed practical tasks in \'Architecture\', \'Security\', \'Programming\', \'Testing\', and \'Agile\' as part of the Accenture Software Engineering Job Simulation.')">
                             View Certificate
                         </a>
                     </div>
                 </div>
 
+                <!-- Experience Item 2: AWS Job Sim (18.png) -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Solutions Architecture Job Simulation</h3>
+                        <h4>AWS (via Forage)</h4>
+                        <div class="date">July 15th, 2025</div>
+                        <p>Completed practical tasks in 'Designing a simple, scalable, hosting architecture' as part of the AWS Solutions Architecture Job Simulation.</p>
+                        <a class="timeline-btn" onclick="openPopup('Solutions Architecture Job Simulation', 'AWS (via Forage)', 'Completed: July 15th, 2025', '18.png', 'Completed practical tasks in \'Designing a simple, scalable, hosting architecture\' as part of the AWS Solutions Architecture Job Simulation.')">
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+                
                  <!-- Experience Item 3: Deloitte Data Analytics (15.png) -->
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -1161,80 +1193,65 @@
                     </div>
                 </div>
 
-                <!-- Experience Item 2: AWS Job Sim (18.png) -->
+                <!-- Experience Item 6: Process Mining Internship (19.png) - OLDEST -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Solutions Architecture Job Simulation</h3>
-                        <h4>AWS (via Forage)</h4>
-                        <div class="date">July 15th, 2025</div>
-                        <p>Completed practical tasks in 'Designing a simple, scalable, hosting architecture' as part of the AWS Solutions Architecture Job Simulation.</p>
-                        <a class="timeline-btn" onclick="openPopup('Solutions Architecture Job Simulation', 'AWS (via Forage)', 'Completed: July 15th, 2025', '18.png', 'Completed practical tasks in \'Designing a simple, scalable, hosting architecture\' as part of the AWS Solutions Architecture Job Simulation.')">
+                        <h3>Virtual Internship (Process Mining)</h3>
+                        <h4>Celonis (via NEAT & EduSkills)</h4>
+                        <div class="date">Dec 2022 - Feb 2023</div>
+                        <p>Successfully completed a 10-week Virtual Internship in Process Mining from the Institute of Technology & Management, Gwalior.</p>
+                        <a class="timeline-btn" onclick="openPopup('Virtual Internship (Process Mining)', 'Celonis (via NEAT & EduSkills)', 'Completed: Dec 2022 - Feb 2023', '19.png', 'Successfully completed a 10-week Virtual Internship in Process Mining from the Institute of Technology & Management, Gwalior.')">
                             View Certificate
                         </a>
                     </div>
                 </div>
 
-                 <!-- Experience Item 1: Accenture Job Sim (17.png) - NEWEST -->
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Software Engineering Job Simulation</h3>
-                        <h4>Accenture (via Forage)</h4>
-                        <div class="date">July 25th, 2025</div>
-                        <p>Completed practical tasks in 'Architecture', 'Security', 'Programming', 'Testing', and 'Agile' as part of the Accenture Software Engineering Job Simulation.</p>
-                        <a class="timeline-btn" onclick="openPopup('Software Engineering Job Simulation', 'Accenture (via Forage)', 'Completed: July 25th, 2025', '17.png', 'Completed practical tasks in \'Architecture\', \'Security\', \'Programming\', \'Testing\', and \'Agile\' as part of the Accenture Software Engineering Job Simulation.')">
-                            View Certificate
-                        </a>
-                    </div>
-                </div>
-
-               
             </div>
         </div>
     </section>
     <!-- +++++++++++++ END OF EXPERIENCE SECTION +++++++++++++ -->
     
     <!-- +++++++++++++ SECTION: PROJECTS (SCROLLABLE) +++++++++++++ -->
+    <!-- Updated Project Section to only show 2 projects -->
     <section id="projects" class="section section-column section-bg">
          <div class="content-header">
             <h1>Projects</h1>
-            <p>A selection of projects demonstrating my skills and interests. Scroll to see more.</p>
+            <p>A selection of projects demonstrating my skills and interests.</p> 
+            <!-- Removed "Scroll to see more." -->
         </div>
         
-        <div class="project-grid-container"> 
-            <div class="project-grid">
-                
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="22.png" alt="Hand motion tracking project" onerror="this.src='https://placehold.co/600x400/333/ccc?text=Project+Alpha'; this.onerror=null;">
-                    <h3>Hand motion tracking projec</h3>
-                    <p>Analyzed a retail sales dataset (10k+ records) using Python (Pandas, NumPy) to identify sales trends, customerbuying behavior, and top-performing products.Python, Pandas, EDA, Data Visualization, Power BI, Business Insights, Dashboard.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/yashvs711/proj_2_HandMotion/blob/master/main.py" target="_blank" rel="noopener noreferrer">View Code</a>
-                    </div>
+        <!-- Removed project-grid-container -->
+        <div class="project-grid" style="max-width: 1100px; margin: 0 auto;"> 
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="22.png" alt="Hand motion tracking project" onerror="this.src='https://placehold.co/600x400/333/ccc?text=Project+Alpha'; this.onerror=null;">
+                <h3>Hand motion tracking projec</h3>
+                <p>Analyzed a retail sales dataset (10k+ records) using Python (Pandas, NumPy) to identify sales trends, customerbuying behavior, and top-performing products.Python, Pandas, EDA, Data Visualization, Power BI, Business Insights, Dashboard.</p>
+                <div class="project-links">
+                    <a href="https://github.com/yashvs711/proj_2_HandMotion/blob/master/main.py" target="_blank" rel="noopener noreferrer">View Code</a>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                     <img src="23.jpg" alt="Project Beta Screenshot" onerror="this.src='https://placehold.co/600x400/444/ddd?text=Project+Beta'; this.onerror=null;">
-                    <h3>Ai_model_1_Handwritten Digit Recognizer</h3>
-                    <p>Handwritten Digit Recognition using CNN: Developed a Convolutional Neural Network (CNN) model for recognizinghandwritten digits (0-9) from images using the MNIST dataset.Technologies Used: Python, TensorFlow, Keras, NumPy, Matplotlib, Gradio.</p>
-                     <div class="project-links">
-                        <a href="https://colab.research.google.com/drive/1u6OTpUuyQpStbYsVXZBoRxkMgQavdV64?usp=sharing" target="_blank" rel="noopener noreferrer">View Code</a>
-                        <!-- <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a> -->
-                    </div>
-                </div>
-                
-               
-                
             </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                 <img src="23.jpg" alt="Project Beta Screenshot" onerror="this.src='https://placehold.co/600x400/444/ddd?text=Project+Beta'; this.onerror=null;">
+                <h3>Ai_model_1_Handwritten Digit Recognizer</h3>
+                <p>Handwritten Digit Recognition using CNN: Developed a Convolutional Neural Network (CNN) model for recognizinghandwritten digits (0-9) from images using the MNIST dataset.Technologies Used: Python, TensorFlow, Keras, NumPy, Matplotlib, Gradio.</p>
+                 <div class="project-links">
+                    <a href="https://colab.research.google.com/drive/1u6OTpUuyQpStbYsVXZBoRxkMgQavdV64?usp=sharing" target="_blank" rel="noopener noreferrer">View Code</a>
+                    <!-- <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a> -->
+                </div>
+            </div>
+            
+            <!-- Removed other project cards -->
+            
         </div>
     </section>
     <!-- +++++++++++++ END OF PROJECTS SECTION +++++++++++++ -->
 
     <!-- +++++++++++++ SECTION: RESUME +++++++++++++ -->
-    <!-- Updated Resume Section with corrected onclick -->
     <section id="resume" class="section section-column">
         <div class="content-header">
            <h1>My Resume</h1>
@@ -1243,14 +1260,11 @@
        
        <div class="resume-container">
            <div class="resume-preview">
-                <!-- IMPORTANT: Update src below with your actual PREVIEW image filename -->
                <img src="21.png" 
                     alt="Resume Preview" 
-                    onclick="openPopup('My Resume', '', '', '21.png')"
+                    onclick="openPopup('My Resume', '', '', '21.png', 'Click the button below to download the full PDF version.')"
                     onerror="this.src='https://placehold.co/600x800/222/ccc?text=Resume'; this.onerror=null;">
-                <!-- Comment moved outside the tag -->
            </div>
-           <!-- Make sure to replace '#' with the actual path to your PDF file -->
            <a href="https://drive.google.com/file/d/1Vwj8X1s7LNb4jDo4WZHHIfgh_eKQkXAX/view?usp=sharing" download="Yash_Vardhan_Sahu_Resume.pdf" class="resume-download-btn">Download Resume (PDF)</a>
        </div>
     </section>
@@ -1276,92 +1290,190 @@
     </section>
 
    
+    <!-- POPUP Modal -->
+    <div id="certPopup" class="popup-overlay">
+        <div class="popup-content"> 
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <div class="popup-flex"> <!-- This container is now scrollable -->
+                <img id="popupImg" src="" alt="Certificate / Resume">
+                <div class="popup-details">
+                    <h2 id="popupTitle"></h2>
+                    <p id="popupIssuer"></p>
+                    <p id="popupDate"></p>
+                    <p id="popupDesc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>Yash Vardhan Sahu | Portfolio 2025</p>
+    </footer>
 
     <script>
-        const popup = document.getElementById('certPopup');
-        const popupContentElement = popup.querySelector('.popup-content'); 
+        // Define popup variable globally but get element after DOM load
+        let popup; 
         
+        // Ensure DOM is ready before getting elements
+        document.addEventListener('DOMContentLoaded', () => {
+             console.log('DOM Loaded. Getting popup element and setting up fallbacks.');
+             popup = document.getElementById('certPopup'); // Get popup element here
+             
+             // Setup initial image fallbacks
+             setupImageFallbacks(); 
+        });
+
         function openPopup(title, issuer, date, imgSrc, description) {
-            popup.style.display = 'flex';
-            document.getElementById('popupTitle').innerText = title;
-            // Only show issuer/date if they exist
-            document.getElementById('popupIssuer').innerText = issuer ? 'Issued by: ' + issuer : ''; 
-            document.getElementById('popupIssuer').style.display = issuer ? 'block' : 'none'; // Hide element if no issuer
-            document.getElementById('popupDate').innerText = date || ''; 
-            document.getElementById('popupDate').style.display = date ? 'block' : 'none'; // Hide element if no date
-            document.getElementById('popupDesc').innerText = description || 'No description available.';
+            console.log('Attempting to open popup for:', title, imgSrc); 
             
+            // Check if popup element exists (it should after DOMContentLoaded)
+            if (!popup) {
+                console.error('Popup element (#certPopup) not found! Was DOMContentLoaded fired?');
+                // Attempt to get it again, just in case
+                popup = document.getElementById('certPopup');
+                 if (!popup) return; // Still not found, exit
+            }
+
+            popup.style.display = 'flex'; 
+            
+            // Safely get elements within the popup
+            const popupTitleEl = document.getElementById('popupTitle');
+            const popupIssuerEl = document.getElementById('popupIssuer');
+            const popupDateEl = document.getElementById('popupDate');
+            const popupDescEl = document.getElementById('popupDesc');
             const imgElement = document.getElementById('popupImg');
-            imgElement.src = imgSrc || 'https://placehold.co/400x300?text=Certificate';
-            imgElement.onerror = function() {
-                this.src = 'https://placehold.co/400x300/555/eee?text=Image+Not+Found';
-                this.onerror = null;
-            };
+
+            // Set content only if elements exist
+            if (popupTitleEl) popupTitleEl.innerText = title || 'Untitled'; 
+            
+            if (popupIssuerEl) {
+                const issuerText = issuer ? 'Issued by: ' + issuer : '';
+                popupIssuerEl.innerText = issuerText; 
+                popupIssuerEl.style.display = issuer ? 'block' : 'none'; 
+            } else { console.warn('#popupIssuer not found'); }
+             
+            if (popupDateEl) {
+                popupDateEl.innerText = date || ''; 
+                popupDateEl.style.display = date ? 'block' : 'none'; 
+            } else { console.warn('#popupDate not found'); }
+             
+            if (popupDescEl) {
+                 const descText = description || ''; 
+                 popupDescEl.innerText = descText;
+                 popupDescEl.style.display = descText ? 'block' : 'none'; 
+             } else { console.warn('#popupDesc not found'); }
+            
+            if (imgElement) {
+                imgElement.src = imgSrc || 'https://placehold.co/400x300/eee/aaa?text=No+Image'; 
+                
+                imgElement.onerror = function() {
+                    console.error(`Popup image failed to load: ${imgSrc}`);
+                    this.src = 'https://placehold.co/600x400/555/eee?text=Image+Load+Error';
+                    this.onerror = null; 
+                };
+            } else {
+                 console.error('Popup image element (#popupImg) not found!');
+            }
         }
 
         function closePopup() {
+             if (!popup) { // Check if popup exists
+                 console.error('Cannot close popup, element not found.');
+                 return; 
+             }
+             
             popup.style.animation = 'fadeOut 0.3s ease forwards';
+            
             setTimeout(() => {
-                popup.style.display = 'none';
-                popup.style.animation = 'fadeIn 0.3s ease'; 
-            }, 300);
+                popup.style.display = 'none'; 
+                popup.style.animation = ''; 
+                
+                 const imgElement = document.getElementById('popupImg');
+                 if(imgElement) imgElement.src = ''; 
+
+            }, 300); 
         }
 
+        // Close popup if overlay is clicked
         window.addEventListener('click', (event) => {
-            if (event.target == popup) {
+             // Check if popup exists and is visible before trying to close
+            if (popup && popup.style.display === 'flex' && event.target === popup) {
                 closePopup();
             }
         });
         
-        // Inject fadeOut animation style
-        const styleSheet = document.createElement("style");
-        styleSheet.type = "text/css";
-        styleSheet.innerText = `@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }`;
-        document.head.appendChild(styleSheet);
+        // Inject fadeOut animation style only once using an ID check
+        if (!document.getElementById('popupFadeOutStyle')) {
+            const styleSheet = document.createElement("style");
+            styleSheet.id = 'popupFadeOutStyle'; 
+            styleSheet.type = "text/css";
+            styleSheet.innerText = `@keyframes fadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.95); } }`; 
+            document.head.appendChild(styleSheet);
+        }
 
-        // Fallback for images
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('img').forEach(img => {
-                if (img.id === 'popupImg') return; // Skip popup image itself
+        // Function to set up initial image fallbacks
+        function setupImageFallbacks() {
+            document.querySelectorAll('img:not(#popupImg)').forEach(img => { // Exclude popup image
                 
-                // Keep original onerror logic attached directly to the element
-                // The JS logic updates the src, and the inline onerror handles if THAT fails
-                
-                const originalOnerrorText = img.getAttribute('onerror');
-                img.onerror = function() {
-                    console.warn(`Image failed to load: ${this.src}. Attempting fallback.`);
-                    // Execute original inline onerror if it exists
-                    if (originalOnerrorText) {
-                         try {
-                            // This is a bit risky but tries to execute the original fallback logic
-                             new Function(originalOnerrorText).call(this); 
-                         } catch (e) {
-                            console.error("Error executing original onerror:", e);
-                            // Generic fallback if original onerror fails or doesn't exist
-                             this.src = 'https://placehold.co/600x400/222/ccc?text=Error';
-                         }
-                    } else {
-                        // Generic fallback if no original onerror
-                        this.src = 'https://placehold.co/600x400/222/ccc?text=Not+Found';
-                    }
-                     this.onerror = null; // Prevent infinite loop
+                const applyPlaceholderFallback = (imageElement) => {
+                    if (imageElement.id === 'popupImg') return; 
+
+                    const fallbackText = imageElement.alt || 'Image Not Found';
+                    let placeholderUrl = `https://placehold.co/600x400/222/ccc?text=${encodeURIComponent(fallbackText)}`; // Default
+
+                    if (imageElement.closest('.cert-frame')) {
+                        placeholderUrl = `https://placehold.co/400x300/555/eee?text=${encodeURIComponent(fallbackText)}`;
+                    } else if (imageElement.closest('.project-card')) { 
+                        placeholderUrl = `https://placehold.co/600x400/333/ccc?text=${encodeURIComponent(fallbackText)}`;
+                    } else if (imageElement.closest('.resume-preview')) { 
+                        placeholderUrl = `https://placehold.co/600x800/222/ccc?text=Resume`;
+                    } else if(imageElement.closest('#home .image')) {
+                        placeholderUrl = `https://placehold.co/600x800/222/ccc?text=Yash+Vardhan+Sahu`;
+                    } else if(imageElement.closest('#about-me .image')) {
+                        placeholderUrl = `https://placehold.co/600x700/222/ccc?text=About+Me`;
+                    } else if(imageElement.closest('#contact .image')) {
+                        placeholderUrl = `https://placehold.co/600x600/222/ccc?text=Contact`;
+                    } 
+
+                    console.warn(`Applying fallback to ${imageElement.src || 'img tag with no src'} -> ${placeholderUrl}`);
+                    imageElement.src = placeholderUrl;
+                    imageElement.onerror = null; // Prevent infinite loops
                 };
+
+                 const originalOnerrorText = img.getAttribute('onerror');
+                 
+                 img.onerror = function() {
+                     if (originalOnerrorText && !originalOnerrorText.includes('placehold.co')) {
+                          try {
+                             console.log(`Executing original onerror for ${this.src}`);
+                             new Function(originalOnerrorText).call(this);
+                             if (!this.src.includes('placehold.co')) {
+                                 applyPlaceholderFallback(this);
+                             } else {
+                                  this.onerror = null; 
+                             }
+                          } catch (e) {
+                             console.error("Error executing original onerror, applying standard fallback:", e);
+                             applyPlaceholderFallback(this);
+                          }
+                     } else {
+                         applyPlaceholderFallback(this);
+                     }
+                 };
+
+                 // Check if image is already broken after DOM load attempt
+                  if (img.complete && img.naturalHeight === 0 && img.src && !img.src.startsWith('https://placehold.co')) {
+                     console.warn(`Image broken immediately after load (or cached broken): ${img.src}`);
+                     if (img.onerror) {
+                        img.onerror();
+                     } else {
+                        applyPlaceholderFallback(img);
+                     }
+                 }
             });
-            
-             // Ensure placeholders are explicitly set only if the image doesn't load initially
-             // We rely on the onerror logic above now primarily
-             
-             // Example: Force placeholder if src is empty or invalid initially (optional)
-             const contactImg = document.querySelector('#contact .image img');
-             // Check if src attribute exists and is not empty before potentially overwriting
-             if (!contactImg.getAttribute('src')) { 
-                 contactImg.src='https://placehold.co/600x600/222/ccc?text=Contact';
-             }
-              const thankYouImg = document.querySelector('#thank-you .image img');
-              if (!thankYouImg.getAttribute('src')) {
-                 thankYouImg.src='https://placehold.co/600x400/222/ccc?text=Thank+You';
-             }
-        });
+        }
+
     </script>
 </body>
 </html>
